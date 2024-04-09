@@ -1,0 +1,10 @@
+{
+  "collection": "@nestjs/schematics",
+  "language": "ts",
+  "sourceRoot": "packages",
+  "entryFile": "index",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "plugins": []
+  }
+}
