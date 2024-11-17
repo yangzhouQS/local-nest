@@ -153,7 +153,12 @@ export function Controller(
 ): ClassDecorator {
   const defaultPath = '/';
 
-  const [path, host, scopeOptions, versionOptions] = isUndefined(
+  const [
+    path,
+    host,
+    scopeOptions,
+    versionOptions
+  ] = isUndefined(
     prefixOrOptions,
   )
     ? [defaultPath, undefined, undefined, undefined]
@@ -169,10 +174,19 @@ export function Controller(
         ];
 
   return (target: object) => {
+    // 控制器标识
     Reflect.defineMetadata(CONTROLLER_WATERMARK, true, target);
+
+    // 设置path元数据
     Reflect.defineMetadata(PATH_METADATA, path, target);
+
+    // 设置host元数据
     Reflect.defineMetadata(HOST_METADATA, host, target);
+
+    // 设置scope元数据
     Reflect.defineMetadata(SCOPE_OPTIONS_METADATA, scopeOptions, target);
+
+    // 设置version元数据
     Reflect.defineMetadata(VERSION_METADATA, versionOptions, target);
   };
 }
